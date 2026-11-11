@@ -494,7 +494,7 @@ var CONFIG = {
       var caso = a.getAttribute("data-caso") || "";
       var local = a.getAttribute("data-cta") || "";
       a.href = link(caso);
-      window.dataLayer.push({ event: "whatsapp_click", cta_location: local, caso: caso, lead_ref: ref });
+      window.dataLayer.push({ event: "whatsapp_click", cta_location: local, lead_ref: ref });
       if (CONFIG.webhookUrl && navigator.sendBeacon) {
         var corpo = Object.assign({ lead_ref: ref, origem: "LP Implante Dr. Érico Azevedo", caso: caso, cta_location: local, pagina: location.href, criado_em: new Date().toISOString() }, origem);
         try { navigator.sendBeacon(CONFIG.webhookUrl, new Blob([JSON.stringify(corpo)], { type: "text/plain" })); } catch(e) {}
